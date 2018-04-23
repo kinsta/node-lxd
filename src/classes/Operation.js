@@ -11,7 +11,7 @@
 
 // requires
 var utils = require('../utils');
-var WebSocket = require('ws-unix');
+var WebSocket = require('ws');
 var extend = require('util')._extend;
 
 // client
