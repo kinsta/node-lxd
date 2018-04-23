@@ -94,6 +94,7 @@ var Operation = utils.class_('Operation', {
         options = {
           key: this._client._key,
           cert: this._client._cert,
+          rejectUnauthorized: false
         }
       }
 
