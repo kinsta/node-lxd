@@ -544,15 +544,15 @@ var Client = utils.class_('Client', {
 
     // websocket path
     if (host) {
-      this._wsPath = 'ws://' + hostname;
+      this._wsPath = 'ws' + (authenticate ? 's' : '') + '://' + hostname;
       this._wsPath += port ? ':' + port + '/' : '/';
     } else {
       this._wsPath = 'ws+unix:///var/lib/lxd/unix.socket:/';
     }
 
     if (authenticate && authenticate.cert && authenticate.key) {
-      this._cert = authenticate.cert
-      this._key = authenticate.key
+      this._cert = authenticate.cert;
+      this._key = authenticate.key;
     }
 
     // cache the info, we don't really need it ASAP so we just let it naturally happen

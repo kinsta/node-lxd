@@ -88,9 +88,18 @@ var Operation = utils.class_('Operation', {
   webSocket: function(secret, callback) {
     if (this.class() == 'websocket') {
       // try and connect
+
+      let options = {};
+      if (this._client._key && this._client._cert) {
+        options = {
+          key: this._client._key,
+          cert: this._client._cert,
+        }
+      }
+
       var ws = new WebSocket(
         this._client._wsPath + '1.0/operations/' + this.id() +
-        '/websocket?secret=' + secret);
+        '/websocket?secret=' + secret, options);
 
       // hook onto events
       ws.on('error', function(err) {
