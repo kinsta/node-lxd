@@ -131,12 +131,12 @@ var Process = utils.class_('Process', EventEmitter, {
 
     // messages
     this._stdOut.on('message', function(a, b, c) {
-      process.emit('data', false, a.toString('utf8').trim());
+      process.emit('data', false, a.toString('utf8'));
     });
 
     if (this._stdErr !== null) {
       this._stdErr.on('message', function(a, b, c) {
-        process.emit('data', true, a.toString('utf8').trim());
+        process.emit('data', true, a.toString('utf8'));
       });
     }
   },
