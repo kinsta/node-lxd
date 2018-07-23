@@ -572,7 +572,7 @@ var Container = utils.class_('Container', {
       var wsQueue = new TaskQueue();
       var ws = [];
 
-      for (var i = 0; i < (interactive == true ? 2 : 4); i++) {
+      for (var i = (interactive == true ? 1 : 3); i >= 0; i--) {
         (function(i) {
           wsQueue.queue(function(done) {
             operation.webSocket(
