@@ -103,6 +103,10 @@ var Operation = utils.class_('Operation', {
         '/websocket?secret=' + secret, options);
 
       // hook onto events
+      ws.on('unexpected-response', (req, res) => { 
+        res.on('data', (responseBody) => callback(new Error(responseBody.toString('utf8'))))
+      })
+      
       ws.on('error', function(err) {
         callback(err);
       });
