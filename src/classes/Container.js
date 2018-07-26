@@ -572,6 +572,7 @@ var Container = utils.class_('Container', {
       var wsQueue = new TaskQueue();
       var ws = [];
 
+      // counting downwards to connect to control socket first
       for (var i = (interactive == true ? 1 : 3); i >= 0; i--) {
         (function(i) {
           wsQueue.queue(function(done) {
